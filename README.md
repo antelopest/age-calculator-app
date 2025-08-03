@@ -11,25 +11,25 @@ The idea, design, assets (fonts, images, icons) for the Age Calculator App UI pr
 
 ## Tech stack
 
-* **Bundler:** Webpack
-* **CSS Preprocessor:** SCSS
-* **JavaScript:** ES Module, Web Components
-* **Architecture:** 
-  * Core:
-    * Dependency Injection Container
-    * Service (Singleton)
-    * Component
-* **Responsive:** Fully adaptive (desktop & mobile)
+- **Bundler:** Webpack
+- **CSS Preprocessor:** SCSS
+- **JavaScript:** ES Module, Web Components
+- **Architecture:**
+  - Core:
+    - Dependency Injection Container
+    - Service (Singleton)
+    - Component
+- **Responsive:** Fully adaptive (desktop & mobile)
 
 ## Design Previews
 
-* [Desktop design](design/desktop-design.jpg)
-* [Mobile design](design/mobile-design.jpg)
+- [Desktop design](design/desktop-design.jpg)
+- [Mobile design](design/mobile-design.jpg)
 
 ## Scripts
 
 | Script           | Description                    |
-|------------------|--------------------------------|
+| ---------------- | ------------------------------ |
 | `npm run dev`    | Start dev server + watch build |
 | `npm run build`  | Create production build        |
 | `npm run deploy` | Build & deploy to GitHub Pages |

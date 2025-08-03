@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "## GitHub Pages",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "htmlhint": "htmlhint src/**/*.html",
     "lint:eslint": "eslint . --ext .js",
     "lint:styles": "stylelint '**/*.scss'",
-    "dev": "",
-    "build": "",
+    "format": "prettier --write .",
+    "dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -23,17 +25,31 @@
   },
   "homepage": "https://github.com/antelopest/age-calculator-app#readme",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
+    "file-loader": "^6.2.0",
     "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.3",
     "htmlhint": "^1.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.2.4",
     "prettier": "^3.6.2",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
     "stylelint": "^16.23.0",
     "stylelint-config-standard": "^39.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "stylelint-selector-bem-pattern": "^4.0.1",
     "webpack": "^5.101.0",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
   }
 }

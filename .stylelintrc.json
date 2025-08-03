@@ -1,10 +1,6 @@
 {
-  "plugins": [
-    "stylelint-selector-bem-pattern"
-  ],
-  "extends": [
-    "stylelint-config-standard-scss"
-  ],
+  "plugins": ["stylelint-selector-bem-pattern"],
+  "extends": ["stylelint-config-standard-scss"],
   "rules": {
     "block-no-empty": true,
     "selector-class-pattern": null,
