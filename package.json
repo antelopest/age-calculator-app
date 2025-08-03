@@ -4,7 +4,8 @@
   "description": "## GitHub Pages",
   "main": "main.js",
   "scripts": {
-    "htmlhint": "htmlhint src/**/*.html"
+    "htmlhint": "htmlhint src/**/*.html",
+    "lint:eslint": "eslint . --ext .js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,12 @@
   },
   "homepage": "https://github.com/antelopest/age-calculator-app#readme",
   "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
     "htmlhint": "^1.6.3",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1"
   }
 }
