@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "htmlhint": "htmlhint src/**/*.html",
-    "lint:eslint": "eslint . --ext .js"
+    "lint:eslint": "eslint . --ext .js",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
+    "gh-pages": "^6.3.0",
     "htmlhint": "^1.6.3",
     "prettier": "^3.6.2",
     "webpack": "^5.101.0",
