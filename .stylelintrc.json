@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "stylelint-selector-bem-pattern"
+  ],
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "block-no-empty": true,
+    "selector-class-pattern": null,
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentName": "([a-z]+(?:-[a-z]+)*)",
+      "componentSelectors": {
+        "initial": "^\\.{component}(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$"
+      }
+    }
+  }
+}

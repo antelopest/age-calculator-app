@@ -6,6 +6,9 @@
   "scripts": {
     "htmlhint": "htmlhint src/**/*.html",
     "lint:eslint": "eslint . --ext .js",
+    "lint:styles": "stylelint '**/*.scss'",
+    "dev": "",
+    "build": "",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -26,6 +29,10 @@
     "gh-pages": "^6.3.0",
     "htmlhint": "^1.6.3",
     "prettier": "^3.6.2",
+    "stylelint": "^16.23.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-selector-bem-pattern": "^4.0.1",
     "webpack": "^5.101.0",
     "webpack-cli": "^6.0.1"
   }
