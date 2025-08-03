@@ -2,19 +2,23 @@
   "name": "age-calculator-app",
   "version": "1.0.0",
   "description": "## GitHub Pages",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "htmlhint": "htmlhint src/**/*.html"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antelopest/age-calculator-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Simon Belenko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/antelopest/age-calculator-app/issues"
   },
-  "homepage": "https://github.com/antelopest/age-calculator-app#readme"
+  "homepage": "https://github.com/antelopest/age-calculator-app#readme",
+  "devDependencies": {
+    "htmlhint": "^1.6.3",
+    "prettier": "^3.6.2"
+  }
 }
