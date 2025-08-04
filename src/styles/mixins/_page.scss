@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../variables/variables' as *;
+
+@mixin page($breakpoint) {
+  $width: map.get($container, $breakpoint);
+
+  @media (min-width: $width) {
+    max-width: $width;
+  }
+}

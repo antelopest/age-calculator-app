@@ -1,0 +1,28 @@
+$container: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+$color: (
+  purple: hsl(259, 100%, 65%),
+  red: hsl(0, 100%, 67%),
+  white: hsl(0, 100%, 100%),
+  grey100: hsl(0, 0%, 94%),
+  grey200: hsl(0, 0%, 86%),
+  grey500: hsl(0, 1%, 44%),
+  black: hsl(0, 0%, 0%)
+);
+
+$font: (
+  family: 'Poppins',
+  size: 16px,
+  weight400: 400,
+  weight500: 500,
+  weight600: 600,
+  weight700: 700,
+  weight800: 800
+);

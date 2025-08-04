@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '../variables/variables' as *;
+
+@mixin centering() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
