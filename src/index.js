@@ -1,51 +1,110 @@
 import './styles/main.scss';
 
-const [formEl] = document.getElementsByClassName('age-calculator__form');
-const [dayInput, monthInput, yearInput] = document.getElementsByClassName(
-  'age-calculator__form-input'
-);
-const [yearSpan, monthSpan, daySpan] = document.getElementsByClassName(
-  'age-calculator__output-value'
-);
+document.addEventListener('DOMContentLoaded', () => {
+  const formEl = document.querySelector('.age-calculator__form');
 
-formEl.addEventListener('submit', (e) => {
-  e.preventDefault();
+  const validators = {
+    required(value) {
+      let valid = false;
+      let error = '';
 
-  const day = parseInt(dayInput.value);
-  const month = parseInt(monthInput.value) - 1;
-  const year = parseInt(yearInput.value);
+      if (typeof value === 'string' && value.trim().length > 0) {
+        valid = true;
+      } else {
+        error = 'This field is required';
+      }
 
-  let isValid = true;
+      return {
+        valid,
+        error
+      };
+    },
+    pattern(value, pattern) {},
+    dayValidator(value) {},
+    monthValidator(value) {},
+    yearValidator(value) {},
+    formValidator(day, month) {}
+  };
 
-  if (day < 1 || day > 31) {
-    isValid = false;
-    dayInput.setCustomValidity('Day must be between 1 and 31');
-  } else {
-    dayInput.setCustomValidity('');
-  }
+  const formGroups = {
+    day: {
+      labelEl: formEl.querySelector('.age-calculator__form-label--day'),
+      inputEl: formEl.querySelector('.age-calculator__form-input--day'),
+      errorEl: formEl.querySelector('.age-calculator__form-error--day'),
+      validators: [validators.required]
+    },
+    month: {
+      labelEl: formEl.querySelector('.age-calculator__form-label--month'),
+      inputEl: formEl.querySelector('.age-calculator__form-input--month'),
+      errorEl: formEl.querySelector('.age-calculator__form-error--month'),
+      validators: [validators.required]
+    },
+    year: {
+      labelEl: formEl.querySelector('.age-calculator__form-label--year'),
+      inputEl: formEl.querySelector('.age-calculator__form-input--year'),
+      errorEl: formEl.querySelector('.age-calculator__form-error--year'),
+      validators: [validators.required]
+    }
+  };
 
-  if (month < 1 || month > 12) {
-    isValid = false;
-    monthInput.setCustomValidity('Month must be between 1 and 12');
-  } else {
-    monthInput.setCustomValidity('');
-  }
+  const dayOutputEl = document.querySelector('.age-calculator__output-value--days');
+  const monthOutputEl = document.querySelector('.age-calculator__output-value--months');
+  const yearOutputEl = document.querySelector('.age-calculator__output-value--years');
 
-  const currentYear = new Date().getFullYear();
+  // pattern="^(0?[1-9]|[12][0-9]|3[01])$"
 
-  if (year < 1900 || year > currentYear) {
-    isValid = false;
-    yearInput.setCustomValidity(`Year must be between 1900 and ${currentYear}`);
-  } else {
-    yearInput.setCustomValidity('');
-  }
+  // pattern="^(0?[1-9]|1[012])$"
 
-  if (!isValid) {
-    formEl.reportValidity();
+  // pattern="^(19|20)\d{2}$"
 
-    return;
-  }
+  const checkFormGroup = (formGroup) => {
+    const { labelEl, inputEl, errorEl, validators } = formGroup;
 
-  // Валидация прошла успешно
-  console.log('Valid inputs:', { day, month, year });
+    const value = inputEl.value;
+
+    for (let i = 0; i < validators.length; i++) {
+      const validator = validators[i];
+      const { valid, error } = validator(value);
+
+      if (valid) {
+        continue;
+      }
+
+      labelEl.classList.add('age-calculator__form-label--error');
+      inputEl.classList.add('age-calculator__form-input--error');
+      errorEl.classList.add('age-calculator__form-error--error');
+
+      errorEl.textContent = error;
+
+      break;
+    }
+  };
+
+  const validateForm = () => {
+    let isFormValid = true;
+
+    const clearPrevErrors = () => {
+      for (const key in formGroups) {
+        const formGroup = formGroups[key];
+
+        formGroup.labelEl.classList.remove('age-calculator__form-label--error');
+        formGroup.inputEl.classList.remove('age-calculator__form-input--error');
+        formGroup.errorEl.classList.remove('age-calculator__form-error--error');
+
+        formGroup.errorEl.textContent = '';
+      }
+    };
+
+    return isFormValid;
+  };
+
+  formEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
 });
+
+class Form {
+  isFormValid = false;
+
+  constructor() {}
+}

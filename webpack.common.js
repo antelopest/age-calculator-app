@@ -54,5 +54,11 @@ export default {
       template: './src/index.html',
       favicon: './src/assets/images/favicon/favicon-32x32.png'
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@form': path.resolve(__dirname, 'src/scripts/form')
+    }
+  }
 };

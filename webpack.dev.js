@@ -8,7 +8,8 @@ export default merge(common, {
     static: './dist',
     hot: true,
     open: true,
-    port: 8080
+    port: 8080,
+    watchFiles: ['src/index.html']
   },
   output: {
     filename: 'js/[name].js'

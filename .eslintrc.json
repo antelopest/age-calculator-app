@@ -5,18 +5,27 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "prettier"
+    "plugin:import/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "plugins": [
+    "import"
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.common.js"
+      }
+    }
+  },
   "rules": {
-    "no-console": "warn",
-    "no-unused-vars": "warn",
-    "semi": ["error", "always"],
-    "quotes": ["error", "single"]
+    "import/no-unresolved": "error",
+    "import/named": "error",
+    "import/namespace": "error",
+    "import/default": "error",
+    "import/export": "error"
   }
 }

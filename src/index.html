@@ -12,44 +12,43 @@
     <main class="page">
       <section class="age-calculator">
         <form class="age-calculator__form">
-          <label class="age-calculator__form-label">
-            Day
-
+          <div class="age-calculator__form-group">
+            <label class="age-calculator__form-label" for="day">Day</label>
             <input
-              class="age-calculator__form-input"
+              id="day"
+              class="age-calculator__form-input age-calculator__form-input--day"
               type="text"
               inputmode="numeric"
               name="day"
-              pattern="^(0?[1-9]|[12][0-9]|3[01])$"
-              placeholder="DD"
-              required />
-          </label>
+              placeholder="DD" />
+            <div class="age-calculator__form-error"></div>
+          </div>
 
-          <label class="age-calculator__form-label">
-            Month
-
+          <div class="age-calculator__form-group">
+            <label
+              class="age-calculator__form-label age-calculator__form-label--month"
+              >Month</label
+            >
             <input
-              class="age-calculator__form-input"
+              class="age-calculator__form-input age-calculator__form-input--month"
               type="text"
               inputmode="numeric"
               name="month"
-              pattern="^(0?[1-9]|1[012])$"
-              placeholder="MM"
-              required />
-          </label>
+              placeholder="MM" />
+            <div class="age-calculator__form-error"></div>
+          </div>
 
-          <label class="age-calculator__form-label">
-            Year
-
+          <div class="age-calculator__form-group">
+            <label class="age-calculator__form-label" for="year">Year</label>
             <input
+              id="year"
               class="age-calculator__form-input"
               type="text"
               inputmode="numeric"
               name="year"
-              pattern="^(19|20)\d{2}$"
-              placeholder="YYYY"
-              required />
-          </label>
+              placeholder="YYYY" />
+            <div class="age-calculator__form-error"></div>
+          </div>
 
           <button
             type="submit"
@@ -69,15 +68,24 @@
         </form>
         <div class="age-calculator__output">
           <div class="age-calculator__output-item">
-            <span class="age-calculator__output-value">38</span>
+            <span
+              class="age-calculator__output-value age-calculator__output-value--years">
+              38
+            </span>
             years
           </div>
           <div class="age-calculator__output-item">
-            <span class="age-calculator__output-value">3</span>
+            <span
+              class="age-calculator__output-value age-calculator__output-value--months">
+              3
+            </span>
             months
           </div>
           <div class="age-calculator__output-item">
-            <span class="age-calculator__output-value">26</span>
+            <span
+              class="age-calculator__output-value age-calculator__output-value--days">
+              26
+            </span>
             days
           </div>
         </div>
