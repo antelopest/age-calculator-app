@@ -1,8 +1,9 @@
 import Validators from '@form/validators/Validators.js';
 import Patterns from '@form/patterns/Patterns.js';
+import Errors from '@form/errors/Errors.js';
 
 export default class CustomValidators extends Validators {
-  static isValidDay(day, month, year) {
+  static isValidDate(day, month, year) {
     let valid = false;
     let error = '';
 
@@ -12,7 +13,7 @@ export default class CustomValidators extends Validators {
     if (day >= 1 && day <= daysInMonth) {
       valid = true;
     } else {
-      error = 'This field is invalid';
+      error = Errors.custom;
     }
 
     return {
@@ -22,6 +23,14 @@ export default class CustomValidators extends Validators {
   }
 
   static isValidDayPattern(day) {
-    return Validators.pattern(day, Pattern.day);
+    return Validators.pattern(day, Patterns.day);
+  }
+
+  static isValidMonthPattern(month) {
+    return Validators.pattern(month, Patterns.month);
+  }
+
+  static isValidYearPattern(year) {
+    return Validators.pattern(year, Patterns.year);
   }
 }
