@@ -1,15 +1,30 @@
-class Form {
+export default class Form {
   formEl = null;
 
   formGroups = [];
 
   constructor(selector, formGroups = []) {
-    this.form = document.querySelector(selector) || null;
+    this.formEl = document.querySelector(selector) || null;
 
-    if (this.form === null) {
+    if (this.formEl === null) {
       throw new Error(`Form element not found by selector: ${selector}`);
     }
 
     this.formGroups = formGroups || [];
+  }
+
+  submit() {}
+
+  reset() {
+    this.formEl.reset();
+  }
+
+  validate() {
+    for (let i = 0; i < this.formGroups.length; i++) {
+      const formGroup = this.formGroups[i];
+
+      formGroup.resetValidity();
+      formGroup.checkValidity();
+    }
   }
 }

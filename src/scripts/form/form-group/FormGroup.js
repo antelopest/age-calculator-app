@@ -18,6 +18,9 @@ export default class FormGroup {
     let isValid = true;
 
     for (let i = 0; i < this.validators.length; i++) {
+      if (isValid === false) {
+        break;
+      }
       const [validator, customError] = this.validators[i];
 
       const { valid, error } = validator(value);
@@ -30,7 +33,7 @@ export default class FormGroup {
       this.input.classList.add('age-calculator__form-input--error');
       this.error.classList.add('age-calculator__form-error--error');
 
-      this.error.content = customError ?? error;
+      this.error.textContent = customError ?? error;
 
       isValid = false;
     }

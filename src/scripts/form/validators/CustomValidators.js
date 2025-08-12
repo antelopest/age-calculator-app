@@ -3,7 +3,7 @@ import Patterns from '@form/patterns/Patterns.js';
 import Errors from '@form/errors/Errors.js';
 
 export default class CustomValidators extends Validators {
-  static isValidDate(day, month, year) {
+  static date(day, month, year) {
     let valid = false;
     let error = '';
 
@@ -22,15 +22,15 @@ export default class CustomValidators extends Validators {
     };
   }
 
-  static isValidDayPattern(day) {
+  static dayPattern(day) {
     return Validators.pattern(day, Patterns.day);
   }
 
-  static isValidMonthPattern(month) {
+  static monthPattern(month) {
     return Validators.pattern(month, Patterns.month);
   }
 
-  static isValidYearPattern(year) {
+  static yearPattern(year) {
     return Validators.pattern(year, Patterns.year);
   }
 }

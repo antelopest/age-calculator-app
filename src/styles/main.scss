@@ -90,6 +90,17 @@
   }
 }
 
+.age-calculator__form-label--error {
+  color: map.get($color, red);
+}
+.age-calculator__form-input--error {
+}
+.age-calculator__form-error--error {
+  color: map.get($color, red);
+
+  font-style: italic;
+}
+
 .age-calculator__form-button {
   position: absolute;
   bottom: -30px;
