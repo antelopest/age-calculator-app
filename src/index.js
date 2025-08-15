@@ -37,6 +37,58 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   ];
 
+  const yearsOutput = document.querySelector(
+    '.age-calculator__output-value--years'
+  );
+  const monthsOutput = document.querySelector(
+    '.age-calculator__output-value--months'
+  );
+  const daysOutput = document.querySelector(
+    '.age-calculator__output-value--days'
+  );
+
+  const calculateAge = function (birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
+
+    if (days < 0) {
+      const prevMonth = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      ).getDate();
+      days += prevMonth;
+      months--;
+    }
+
+    if (months < 0) {
+      months += 12;
+      years--;
+    }
+
+    return { years, months, days };
+  };
+
+  const changeOutput = function (birthDate) {
+    if (birthDate) {
+      const { years, months, days } = calculateAge(birthDate);
+
+      yearsOutput.textContent = String(years);
+      monthsOutput.textContent = String(months);
+      daysOutput.textContent = String(days);
+
+      return;
+    }
+
+    yearsOutput.textContent = '--';
+    monthsOutput.textContent = '--';
+    daysOutput.textContent = '--';
+  };
+
   const formSubmit = function (event) {
     event.preventDefault();
 
@@ -60,13 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const currentDate = new Date();
-      const formDate = new Date(yearValue, monthValue, dayValue);
-
-      let miliseconds = currentDate - formDate;
-
-      // const age =
+      changeOutput(`${yearValue}-${monthValue}-${dayValue}`);
+      return;
     }
+
+    changeOutput();
   };
 
   const form = new Form(formSelector, formGroups, formSubmit);

@@ -46,6 +46,19 @@
 
   width: 100%;
   background-color: map.get($color, white);
+
+  @media (min-width: map.get($container, sm)) {
+    padding: 0 3rem;
+  }
+
+  @media (min-width: map.get($container, md)) {
+    padding: 0 4rem;
+  }
+
+  @media (min-width: map.get($container, lg)) {
+    padding: 0 5rem;
+    border-radius: 3rem 3rem 12rem 3rem;
+  }
 }
 
 .age-calculator__form {
@@ -59,6 +72,14 @@
 
   padding: 4rem 0;
   border-bottom: 2px solid map.get($color, grey200);
+}
+
+.age-calculator__form-group {
+  width: 100%;
+
+  @media (min-width: map.get($container, lg)) {
+    width: 180px;
+  }
 }
 
 .age-calculator__form-label {
@@ -90,8 +111,10 @@
 }
 
 .age-calculator__form-error {
-  height: 22px;
+  min-height: 22px;
   visibility: hidden;
+
+  font-size: clamp(0.8rem, 0.545rem + 1.27vw, 1rem);
 }
 
 .age-calculator__form-label--error {
@@ -109,6 +132,8 @@
 }
 
 .age-calculator__form-button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   position: absolute;
   bottom: -30px;
   left: calc(50% - 30px);
@@ -123,10 +148,26 @@
     background-color: map.get($color, black);
   }
 
+  &:focus {
+    outline: none;
+  }
+
   svg {
     height: 25px;
     width: 25px;
     fill: map.get($color, white);
+  }
+
+  @media (min-width: map.get($container, lg)) {
+    height: 90px;
+    width: 90px;
+    bottom: -45px;
+    left: calc(100% - 90px);
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
   }
 }
 
@@ -143,9 +184,21 @@
 
 .age-calculator__output-item {
   font-style: italic;
-  font-size: clamp(3rem, 9vw, 8rem);
+  font-size: 3rem;
   font-weight: map.get($font, weight800);
   color: map.get($color, grey700);
+
+  @media (min-width: map.get($container, sm)) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: map.get($container, md)) {
+    font-size: 6rem;
+  }
+
+  @media (min-width: map.get($container, lg)) {
+    font-size: 7rem;
+  }
 }
 
 .age-calculator__output-value {

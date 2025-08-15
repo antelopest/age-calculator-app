@@ -58,7 +58,7 @@ export default class FormGroup {
   }
 
   resetErrorText() {
-    this.error.content = '';
+    this.error.textContent = '';
   }
 
   addErrorStyle() {
