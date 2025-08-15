@@ -7,13 +7,13 @@ export default class CustomValidators extends Validators {
     let valid = false;
     let error = '';
 
-    const date = new Date(year, month - 1, 0);
+    const date = new Date(year, month, 0);
     const daysInMonth = date.getDate();
 
     if (day >= 1 && day <= daysInMonth) {
       valid = true;
     } else {
-      error = Errors.custom;
+      error = Errors.date;
     }
 
     return {

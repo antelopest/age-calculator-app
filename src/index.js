@@ -5,6 +5,8 @@ import FormGroup from '@form/form-group/FormGroup.js';
 import CustomValidators from '@form/validators/CustomValidators.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const formSelector = '.age-calculator__form';
+
   const formGroups = [
     new FormGroup(
       document.querySelector('.age-calculator__form-label--day'),
@@ -35,17 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   ];
 
-  const form = new Form('.age-calculator__form', formGroups);
-  const { formEl } = form;
+  const formSubmit = function (event) {
+    event.preventDefault();
 
-  formEl.addEventListener('submit', (e) => {
-    e.preventDefault();
+    if (this.validate()) {
+      const [day, month, year] = this.formGroups;
 
-    console.log('Is form:', form.validate());
-    // form.formGroups.forEach((formGroup) => {
-    //   formGroup.
-    // });
+      const { value: dayValue } = day.input;
+      const { value: monthValue } = month.input;
+      const { value: yearValue } = year.input;
 
-    console.log(e);
-  });
+      const { valid, error } = CustomValidators.date(
+        dayValue,
+        monthValue,
+        yearValue
+      );
+
+      if (!valid) {
+        day.addErrorText(error);
+        day.addErrorStyle();
+
+        return;
+      }
+
+      const currentDate = new Date();
+      const formDate = new Date(yearValue, monthValue, dayValue);
+
+      let miliseconds = currentDate - formDate;
+
+      // const age =
+    }
+  };
+
+  const form = new Form(formSelector, formGroups, formSubmit);
 });

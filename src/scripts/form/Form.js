@@ -1,30 +1,33 @@
 export default class Form {
-  formEl = null;
+  element = null;
 
   formGroups = [];
 
-  constructor(selector, formGroups = []) {
-    this.formEl = document.querySelector(selector) || null;
+  constructor(selector, formGroups = [], submit = function () {}) {
+    this.element = document.querySelector(selector);
 
-    if (this.formEl === null) {
-      throw new Error(`Form element not found by selector: ${selector}`);
-    }
+    this.formGroups = formGroups;
 
-    this.formGroups = formGroups || [];
+    this.submit = submit;
+
+    this.element.addEventListener('submit', this.submit.bind(this));
   }
 
   submit() {}
 
-  reset() {
-    this.formEl.reset();
-  }
-
   validate() {
+    let formValid = true;
+
     for (let i = 0; i < this.formGroups.length; i++) {
       const formGroup = this.formGroups[i];
 
-      formGroup.resetValidity();
-      formGroup.checkValidity();
+      const formGroupValid = formGroup.checkValidity();
+
+      if (formValid && !formGroupValid) {
+        formValid = false;
+      }
     }
+
+    return formValid;
   }
 }

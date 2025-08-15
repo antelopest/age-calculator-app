@@ -1,10 +1,18 @@
 @use 'sass:map';
 @use '../variables/variables' as *;
 
-@mixin page($breakpoint) {
+@mixin page($breakpoint, $centering: false) {
   $width: map.get($container, $breakpoint);
 
   @media (min-width: $width) {
     max-width: $width;
+
+    @if $centering {
+      height: 100%;
+      padding: 0 1rem;
+
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

@@ -10,18 +10,28 @@ export default class FormGroup {
     this.error = error;
 
     this.validators = validators;
+
+    this.input.addEventListener('keydown', this.blur.bind(this));
+    this.input.addEventListener('blur', this.keydown.bind(this));
+  }
+
+  blur() {
+    this.resetErrorStyle();
+    this.resetErrorText();
+  }
+
+  keydown() {
+    this.resetErrorStyle();
+    this.resetErrorText();
   }
 
   checkValidity() {
     const { value } = this.input;
 
-    let isValid = true;
+    let formGroupValid = true;
 
     for (let i = 0; i < this.validators.length; i++) {
-      if (isValid === false) {
-        break;
-      }
-      const [validator, customError] = this.validators[i];
+      const [validator, customError = null] = this.validators[i];
 
       const { valid, error } = validator(value);
 
@@ -29,23 +39,35 @@ export default class FormGroup {
         continue;
       }
 
-      this.label.classList.add('age-calculator__form-label--error');
-      this.input.classList.add('age-calculator__form-input--error');
-      this.error.classList.add('age-calculator__form-error--error');
+      formGroupValid = valid;
 
-      this.error.textContent = customError ?? error;
+      this.addErrorStyle();
 
-      isValid = false;
+      this.addErrorText(customError, error);
+
+      break;
     }
 
-    return isValid;
+    return formGroupValid;
   }
 
-  resetValidity() {
+  resetErrorStyle() {
     this.label.classList.remove('age-calculator__form-label--error');
     this.input.classList.remove('age-calculator__form-input--error');
     this.error.classList.remove('age-calculator__form-error--error');
+  }
 
+  resetErrorText() {
     this.error.content = '';
+  }
+
+  addErrorStyle() {
+    this.label.classList.add('age-calculator__form-label--error');
+    this.input.classList.add('age-calculator__form-input--error');
+    this.error.classList.add('age-calculator__form-error--error');
+  }
+
+  addErrorText(customError, defaultError) {
+    this.error.textContent = customError || defaultError;
   }
 }
