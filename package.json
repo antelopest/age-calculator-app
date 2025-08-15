@@ -7,7 +7,7 @@
   "scripts": {
     "htmlhint": "htmlhint src/**/*.html",
     "lint:eslint": "eslint . --ext .js",
-    "lint:styles": "stylelint '**/*.scss'",
+    "lint:styles": "stylelint '**/*.scss' --fix",
     "format": "prettier --write .",
     "dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",

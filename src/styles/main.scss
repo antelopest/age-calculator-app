@@ -1,9 +1,8 @@
 @use 'sass:map';
-
 @forward 'normalize/normalize';
-
 @use 'variables/variables' as *;
 @use 'mixins/page' as *;
+@import 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
 
 * {
   padding: 0;
@@ -13,7 +12,6 @@
 
 :is(html, body) {
   background-color: map.get($color, grey100);
-
   font-family: map.get($font, family), sans-serif;
   font-size: map.get($font, size);
   color: map.get($color, grey900);
@@ -28,10 +26,8 @@
   flex-direction: column;
   align-items: start;
   justify-content: center;
-
   width: 100%;
   margin: 0 auto;
-
   padding: 6rem 1rem;
 
   @include page(xs, $centering: false);
@@ -42,8 +38,7 @@
 
 .age-calculator {
   padding: 0 2rem;
-  border-radius: 2rem 2rem 8rem 2rem;
-
+  border-radius: 2rem 2rem 8rem;
   width: 100%;
   background-color: map.get($color, white);
 
@@ -57,7 +52,7 @@
 
   @media (min-width: map.get($container, lg)) {
     padding: 0 5rem;
-    border-radius: 3rem 3rem 12rem 3rem;
+    border-radius: 3rem 3rem 12rem;
   }
 }
 
@@ -66,10 +61,8 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-
   display: flex;
   gap: 1rem;
-
   padding: 4rem 0;
   border-bottom: 2px solid map.get($color, grey200);
 }
@@ -91,6 +84,8 @@
 }
 
 .age-calculator__form-input {
+  width: 100%;
+  padding: 1rem;
   margin: 10px 0;
   font-family: map.get($font, family), sans-serif;
   color: map.get($color, grey700);
@@ -113,21 +108,20 @@
 .age-calculator__form-error {
   min-height: 22px;
   visibility: hidden;
-
   font-size: clamp(0.8rem, 0.545rem + 1.27vw, 1rem);
 }
 
 .age-calculator__form-label--error {
   color: map.get($color, red);
 }
+
 .age-calculator__form-input--error {
   border: 2px solid map.get($color, red);
 }
+
 .age-calculator__form-error--error {
   color: map.get($color, red);
-
   visibility: visible;
-
   font-style: italic;
 }
 
@@ -171,11 +165,6 @@
   }
 }
 
-.age-calculator__form-input {
-  width: 100%;
-  padding: 15px;
-}
-
 .age-calculator__output {
   padding: 50px 0;
   display: flex;
@@ -203,4 +192,5 @@
 
 .age-calculator__output-value {
   color: map.get($color, purple);
+  padding-right: 0.2rem;
 }

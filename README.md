@@ -2,7 +2,7 @@
 
 ## GitHub Pages
 
-[Live Demo]()
+[Live Demo](https://antelopest.github.io/age-calculator-app/)
 
 ## Idea
 
@@ -24,7 +24,7 @@ The idea, design, assets (fonts, images, icons) for the Age Calculator App UI pr
 ## Scripts
 
 | Script           | Description                    |
-| ---------------- | ------------------------------ |
+|------------------|--------------------------------|
 | `npm run dev`    | Start dev server + watch build |
 | `npm run build`  | Create production build        |
 | `npm run deploy` | Build & deploy to GitHub Pages |
