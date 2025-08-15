@@ -32,5 +32,8 @@ export default merge(common, {
   ],
   optimization: {
     minimize: true
+  },
+  output: {
+    publicPath: '/age-calculator-app/'
   }
 });
